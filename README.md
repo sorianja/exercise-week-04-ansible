@@ -1,9 +1,10 @@
 
 ## Playbooks for exercise-4
+```
 
-
-- Hostname
-
+```
+#Hostname
+```
 - name: Change hostname
   hosts: cisco
   gather_facts: false
@@ -16,8 +17,9 @@
     - name: save running to start-config when modified
       cisco.ios.ios_config:
         save_when: modified
-- Login Banner
-
+```        
+#Login Banner
+```
 ---
 - name:  Display Cisco info
   hosts: cisco
@@ -33,9 +35,9 @@
           that contains a multiline
           string
         state: present
-
-- SNMP
-
+```
+#SNMP
+```
 - name: Config SNMP
   hosts: cisco
   gather_facts: false
@@ -48,9 +50,9 @@
           - snmp-server community ansible-private RW
           - snmp-server host 192.168.2.107 public
           
-  
-- Name Servers
-
+```  
+#Name Servers
+```
 
 - name: Config nameservers
   hosts: cisco
@@ -62,9 +64,9 @@
         name_servers:
         -  8.8.8.8
         -  8.8.4.4
-
-- Logging
-
+```
+#Logging
+```
 ---
 - name: Configure buffer size
   hosts: cisco
@@ -75,9 +77,9 @@
       cisco.ios.ios_logging:
         dest: buffered
         size: 5000
-
-- NTP
-
+```
+#NTP
+```
 ---
 - name: NTP authentication
   hosts: cisco
@@ -90,9 +92,9 @@
         auth_key: 15435A030726242723273C21181319000A
         auth: true
         state: present
-
-- Configure IP address on interfaces
-
+```
+#Configure IP address on interfaces
+```
 ---
 - name: Change IP
   hosts: myrouters
@@ -105,9 +107,9 @@
         - name: GigabitEthernet2
           ipv4:
           - address: "{{ new_ip }}"
-
-- Configure a routing protocol (router BGP/OSPF)
-
+```
+#Configure a routing protocol (router BGP/OSPF)
+```
 ---
 - name: OSPF
   hosts: cisco
@@ -120,4 +122,4 @@
         - network 192.168.2.0 0.0.0.244 area 0
         parents: router ospf 1
 
-
+```
